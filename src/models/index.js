@@ -6,7 +6,8 @@ const sequelize = new Sequelize('psteam', 'postgres', '1298Luis', {
 });
 
 const models = {
-  User: sequelize.import('./user')
+  User: sequelize.import('./user'),
+  Global_vars: sequelize.import('./global_vars'),
 };
 
 models.sequelize = sequelize;
