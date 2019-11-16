@@ -35,5 +35,5 @@ module.exports = {
         error: 'Error http/500 in userController.searchPin',
       });
     }
-  }
+  },
 };
