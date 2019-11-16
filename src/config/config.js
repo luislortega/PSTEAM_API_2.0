@@ -5,7 +5,7 @@ const op = Sequelize.Op;
 module.exports = {
   port: process.env.PORT || 8081,
   db: {
-    database: process.env.DB_NAME || 'sleek',
+    database: process.env.DB_NAME || 'psteam',
     user: process.env.DB_USER || 'postgres',
     password: process.env.DB_PASS || '1298Luis',
     options: {
