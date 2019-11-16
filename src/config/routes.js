@@ -1,61 +1,61 @@
+const LoginController = require('../controllers/login_controller');
+
 module.exports = app => {
   /**
-   *  login
+   * login
    *
-   * Recibe un JSON con el usuario
+   * Receive a JSON with the user
    *
-   * Verifica la contraseña
-   * Verifica que no haya expirado.
-   * Verifica el id unico de android del dispositivo
-   * Verifica el pin del usuario
+   * Verify the password
+   * Verify that it has not expired.
+   * Verify the device's unique android id
+   * Verify the user's pin
    *
-   * Devuelve los datos del usuario para hacer una doble verificacion en la UI
+   * Returns the user data to double check the UI
    */
-  app.post('/login', (req, res) => {
-    res.send('Login seguro...');
-  });
+  app.post('/login', LoginController.login);
 
   /**
-   * verificar_version
+   * verify_version
    *
-   * Recibe el hash de la version
+   * Receive the hash of the version
    *
-   * Quita la encriptacion a la version recibida y las compara
+   * Remove the encryption to the received version and compare them
    *
-   * Devuelve TRUE o FALSE en caso de que no coincidan
+   * Returns TRUE or FALSE if they do not match
    */
-  app.get('/verificar_version/:hash_version', (req, res) => {
+  app.get('/verify_version/:hash_version', (req, res) => {
     res.send('Verificando la version...');
   });
 
   /**
-   * verificar_server
+   * verify_server
    *
-   * Recibe el hash del ip del servidor
+   * Receive the server ip hash
    *
-   * Quita la encriptacion al ip recibido y los compara
+   * Remove the encryption to the received ip and compare them
    *
-   * Devuelve TRUE o FALSE en caso de que no coincidan
+   * Returns TRUE or FALSE if they do not match
    */
-  app.get('/verificar_server/:hash_server', (req, res) => {
+  app.get('/verify_server/:hash_server', (req, res) => {
     res.send('Verificando servidor...');
   });
 
   /**
-   * consultar_pin
+   * consult_pin
    *
-   * Recibe el nombre de usuario del cliente
+   * Receive the customer's username
    *
-   * Devuelve el pin del usuario
+   * Returns the user's pin
    */
-  app.get('/consultar_pin/:username', (req, res) => {
+  app.get('/consult_pin/:username', (req, res) => {
     res.send('Consultando el nuevo pin');
   });
 
   /**
    * d0d4e28d3f1140240e8695c97d2bf330
    *
-   * Actualiza todos los pins de los usuarios
+   * Update all user pins
    */
   app.get('/d0d4e28d3f1140240e8695c97d2bf330', (req, res) => {
     res.send('Actualizando los pins...');

@@ -2,17 +2,23 @@
 
 **Authors:** luislortega & SayGus
 
-**Descripcion:** Seguridad para PSTEAM 2.0
+**Description:** Security for PSTEAM 2.0
 
-**Modelo de usuario:**
+**User model:**
 
 * username.
 * password.
 * expiration.
-* pin.                    <= actualiza cada dos dias
+* pin.                    <= update every two days
 * unique_id_android.
 
-**Modelo de global_vars:**
+**global_vars model:**
 
-* hash_version.           <= actualiza cada actualizacion del mod menu
-* hash_server.            <= actualiza cada mes
+* hash_version.           <= update every update of mod menu
+* hash_server.            <= update every month
+
+**To do in the following update:**
+
+* Implementing JWT which is JWT is an RFC 7519 standard for transmitting information with the identity and claims of a user securely between a client / server. Such information can be verified and reliable because it is digitally signed.
+
+As always, these definitions, when we talk about technical concepts are very ambiguous and confuse more than help to understand it.
