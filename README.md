@@ -17,8 +17,6 @@
 * hash_version.           <= update every update of mod menu
 * hash_server.            <= update every month
 
-**To do in the following update:**
+**Implementation of HASH MD5:**
 
-* Implementing JWT which is JWT is an RFC 7519 standard for transmitting information with the identity and claims of a user securely between a client / server. Such information can be verified and reliable because it is digitally signed.
-
-As always, these definitions, when we talk about technical concepts are very ambiguous and confuse more than help to understand it.
+* The MD5 message-digest algorithm is a widely used hash function producing a 128-bit hash value. Although MD5 was initially designed to be used as a cryptographic hash function, it has been found to suffer from extensive vulnerabilities. It can still be used as a checksum to verify data integrity, but only against unintentional corruption. It remains suitable for other non-cryptographic purposes, for example for determining the partition for a particular key in a partitioned database.
