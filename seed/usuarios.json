@@ -1,0 +1,26 @@
+[
+    {
+        "hash_id": null,
+        "nombre": "Angeles Teresa",
+        "apellido": "Mena Dzul",
+        "num_tel": "9871137349",
+        "email": "angie_mena@gmail.com",
+        "password": "1234",
+        "latitud": "-12312",
+        "longitud": "123123",
+        "num_servicios": 1,
+        "url_foto_perfil": "www.google.com"
+    },
+    {
+        "hash_id": null,
+        "nombre": "Eyder Antonio",
+        "apellido": "Concha Moreno",
+        "num_tel": "9871137350",
+        "email": "eyderacm@gmail.com",
+        "password": "1234",
+        "latitud": "-12312",
+        "longitud": "123123",
+        "num_servicios": 0,
+        "url_foto_perfil": "www.google.com"
+    }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "user_hash": "hash12345678909323CELORT",
+        "sleeker_hash": "hash12345678909326CELORT",
+        "mensajes": [
+              {
+                "id": 1,
+                "de": "Sleeker",
+                "para": "User",
+                "mensaje": "Hola" 
+              },
+              {
+                "id": 2,
+                "de": "Sleeker",
+                "para": "User",
+                "mensaje": "Un gusto" 
+               }
+        ]
+    }  
+]

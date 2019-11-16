@@ -1,0 +1,119 @@
+[
+    {
+        "user_hash": "hash12345678909323CELORT",
+        "tipo_serv": 1,
+        "tipo_disp": 1,
+        "nom_marca": "Sasmsung",
+        "nom_modelo": "s8",
+        "num_serie": 1232,
+        "falla": "No enciende, posible cambio de pantalla",
+        "precio": 250,
+        "observaciones": "Tiene una fisura en la pantalla",
+        "status": [
+              {
+                "id": 0,
+                "descripcion": "Asignando delivery",
+                "status": 0
+              },
+              {
+                "id": 1,
+                "descripcion": "En camino a tu domicilio",
+                "status": 0
+              },
+              {
+                "id": 2,
+                "descripcion": "En tu domicilio",
+                "status": 0
+              },
+              {
+                "id": 3,
+                "descripcion": "Asignando tecnico",
+                "status": 0
+               },
+               {
+                "id": 4,
+                "descripcion": "Verificando cotizacion",
+                "status": 0
+               },
+               {
+                "id": 5,
+                "descripcion": "En reparacion",
+                "status": 0
+               },
+               {
+                "id": 7,
+                "descripcion": "Reparado",
+                "status": 0
+               },
+               {
+                "id": 8,
+                "descripcion": "En proceso de entrega...",
+                "status": 0
+               },
+               {
+                "id": 9,
+                "descripcion": "Entregado",
+                "status": 0
+               }
+        ],
+        "participantes": [
+              {
+                "sleeker_hash": "hash12345678909326CELORT"
+              },
+              {
+                "sleeker_hash": "hash12345678909325CELORT"
+              },
+              {
+                "sleeker_hash": "hash12345678909326CELORT"
+              }
+        ],
+        "finalizado": 0,
+        "chat_id": 1
+    },
+    {
+      "user_hash": "hash12345678909323CELORT",
+      "tipo_serv": 2,
+      "tipo_disp": 1,
+      "nom_marca": "Sasmsung",
+      "nom_modelo": "s8",
+      "num_serie": null,
+      "falla": null,
+      "precio": 250,
+      "observaciones": null,
+      "status": [
+            {
+              "id": 0,
+              "descripcion": "Asignando delivery",
+              "status": 0
+            },
+            {
+              "id": 1,
+              "descripcion": "En camino a tu domicilio",
+              "status": 0
+            },
+            {
+              "id": 2,
+              "descripcion": "En tu domicilio",
+              "status": 0
+            },
+            {
+              "id": 3,
+              "descripcion": "Entregado",
+              "status": 0
+            }
+      ],
+      "participantes": [
+            {
+              "sleeker_hash": "hash12345678909326CELORT"
+            },
+            {
+              "sleeker_hash": "hash12345678909325CELORT"
+            },
+            {
+              "sleeker_hash": "hash12345678909326CELORT"
+            }
+      ],
+      "finalizado": 0,
+      "chat_id": 1
+  }
+]

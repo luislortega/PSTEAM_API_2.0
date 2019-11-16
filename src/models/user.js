@@ -5,7 +5,7 @@ export default (sequelize, DataTypes) => {
       unique: true,
     },
     password: DataTypes.STRING,
-    expiration: DataTypes.DATE,
+    expiration: DataTypes.STRING,
     pin: DataTypes.INTEGER,
     unique_id_android: DataTypes.STRING,
   });
