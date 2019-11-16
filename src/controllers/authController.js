@@ -20,17 +20,17 @@ module.exports = {
       });
     } catch (err) {
       res.status(400).send({
-        error: 'THE USER EXIST',
+        error: 'THE USER ALREADY EXIST',
       });
     }
   },
   async login(req, res) {
     try {
-      const { username, password, pin, imei, key} = req.body;
+      const { username, password, pin, imei, key } = req.body;
 
       const user = await usuario.findOne({
         where: {
-          username: username
+          username: username,
         },
       });
 
@@ -40,7 +40,7 @@ module.exports = {
           error: 'Username incorrect',
         });
       }
-      
+
       //Password verification
       const isPasswordValid = await user.comparePassword(password);
       if (!isPasswordValid) {
@@ -50,37 +50,42 @@ module.exports = {
       }
 
       //Pin verification
-      if(pin != user.pin){
+      if (pin != user.pin) {
         return res.status(403).send({
           error: 'Check your new pin psteam.herokuapp.com',
         });
       }
 
       //Imei verification
-      if(imei != user.imei){
+      if (imei != user.imei) {
         return res.status(403).send({
           error: 'IMEI incorrect',
         });
       }
 
       //Expiration verification
-      const now = moment().format('YYYY-MM-DD').toString().split("-");
-      const expiration = user.expiration.split("-");
-      
-      if(now[0] === expiration[0] && now[1] == expiration[1]){
-        if(now[2] >= expiration[2]){
+      const now = moment()
+        .format('YYYY-MM-DD')
+        .toString()
+        .split('-');
+      const expiration = user.expiration.split('-');
+
+      if (now[0] === expiration[0] && now[1] === expiration[1]) {
+        if (now[2] >= expiration[2]) {
           return res.status(403).send({
             error: 'Expired',
           });
         }
-      }else if(now[0] > expiration[0] || now[1] > expiration[1]){
-        return res.status(403).send({
-          error: 'Expired',
-        });
+      } else if (now[0] > expiration[0] || now[1] > expiration[1]) {
+        if (expiration[0] <= 2019) {
+          return res.status(403).send({
+            error: 'Expired',
+          });
+        }
       }
 
       //Key verification
-      if(key !== "38d778e70ef5a85aeb526f7f19eed608"){
+      if (key !== '38d778e70ef5a85aeb526f7f19eed608') {
         return res.status(403).send({
           error: 'Please UPDATE mod menu',
         });
@@ -90,11 +95,10 @@ module.exports = {
         user: user.toJSON(),
         token: tokenGenerator(user.toJSON()),
       });
-      
     } catch (err) {
       res.status(500).send({
         error: 'Error http/500 in authController.login',
       });
     }
-  }
+  },
 };
