@@ -6,11 +6,17 @@ module.exports = app => {
   /**
    * login
    *
-   * @param username
-   * @param password
+   * @param usuario
+   * @param senha
    * @param pin
-   * @param imei
-   * @param key
+   * @param id_device
+   * @param bootloader
+   * @param board
+   * @param brand
+   * @param device
+   * @param display
+   * @param fingerprint
+   * @param hardware
    *
    * @return user & token
    */
@@ -19,10 +25,11 @@ module.exports = app => {
   /**
    * register
    *
-   * @param username
-   * @param password
-   * @param imei
-   * @param expiration
+   * @param usuario
+   * @param senha
+   * @param validade
+   * @param host
+   * @param vendedor
    *
    * @return user & token
    */

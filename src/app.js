@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(cors());
 //Routes
 require('./config/routes')(app);
-//Sequelize sync 
+//Sequelize sync
 sequelize.sync({ force: false }).then(() => {
   app.listen(port, () => {
     console.log(`👽 Backend corriendo en el puerto '${port}'`);

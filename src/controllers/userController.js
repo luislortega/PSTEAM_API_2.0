@@ -20,15 +20,15 @@ module.exports = {
       });
     }
   },
-  async searchPin(req, res){
+  async searchPin(req, res) {
     try {
       const user = await usuario.findOne({
         where: {
           username: req.body.username,
-        }
-      })
+        },
+      });
       res.send({
-        pin: user.pin
+        pin: user.pin,
       });
     } catch (err) {
       res.status(500).send({

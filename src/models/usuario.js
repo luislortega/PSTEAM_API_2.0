@@ -6,7 +6,7 @@ function hashPassword(user, options) {
   const SALT_FACTOR = 8;
   let verification_code = '';
 
-  if (!user.changed('password')) {
+  if (!user.changed('senha')) {
     return;
   }
 
@@ -18,10 +18,10 @@ function hashPassword(user, options) {
   //Encrypt
   return bcrypt
     .genSaltAsync(SALT_FACTOR)
-    .then(salt => bcrypt.hashSync(user.password, salt, null))
+    .then(salt => bcrypt.hashSync(user.senha, salt, null))
     .then(hash => {
       user.setDataValue('pin', verification_code);
-      user.setDataValue('password', hash);
+      user.setDataValue('senha', hash);
     });
 }
 
@@ -35,17 +35,23 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         unique: true,
       },
-      username: {
+      usuario: {
         type: DataTypes.STRING,
         unique: true,
       },
-      password: DataTypes.STRING, //Encriptado
-      expiration: DataTypes.STRING,
+      senha: DataTypes.STRING, //Encrypted
+      vendedor: DataTypes.STRING,
+      validade: DataTypes.STRING,
       pin: DataTypes.INTEGER,
-      imei: {
-        type: DataTypes.STRING,
-        unique: true,
-      },
+      id_device: DataTypes.STRING,
+      bootloader: DataTypes.STRING,
+      board: DataTypes.STRING,
+      brand: DataTypes.STRING,
+      device: DataTypes.STRING,
+      display: DataTypes.STRING,
+      fingerprint: DataTypes.STRING,
+      hardware: DataTypes.STRING,
+      host: DataTypes.STRING,
     },
     {
       hooks: {
@@ -55,8 +61,8 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   //Comparacion de la password encriptada
-  usuario.prototype.comparePassword = function(password) {
-    return bcrypt.compareSync(password, this.password);
+  usuario.prototype.comparePassword = function(senha) {
+    return bcrypt.compareSync(senha, this.senha);
   };
 
   return usuario;

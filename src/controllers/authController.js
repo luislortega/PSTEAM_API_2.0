@@ -26,11 +26,11 @@ module.exports = {
   },
   async login(req, res) {
     try {
-      const { username, password, pin, imei, key } = req.body;
+      const { usuarioo, senha, pin, fingerprint, key } = req.body;
 
       const user = await usuario.findOne({
         where: {
-          username: username,
+          usuario: usuarioo,
         },
       });
 
@@ -42,33 +42,56 @@ module.exports = {
       }
 
       //Password verification
-      const isPasswordValid = await user.comparePassword(password);
+      const isPasswordValid = await user.comparePassword(senha);
       if (!isPasswordValid) {
         return res.status(403).send({
           error: 'Password incorrect',
         });
       }
-
       //Pin verification
       if (pin != user.pin) {
         return res.status(403).send({
           error: 'Check your new pin psteam.herokuapp.com',
         });
       }
+      /**
+       *
+       * NEW USER LOGIN and fingerprint verification
+       *
+       */
 
-      //Imei verification
-      if (imei != user.imei) {
+      if (user.fingerprint === null) {
+        await usuario.update(
+          {
+            id_device: 'test',
+            bootloader: 'test',
+            board: 'test',
+            brand: 'test',
+            device: 'test',
+            display: 'test',
+            fingerprint: 'testing',
+            hardware: 'test',
+          },
+          {
+            where: {
+              usuario: usuarioo,
+            },
+          },
+        );
+      } else if (fingerprint != user.fingerprint) {
         return res.status(403).send({
-          error: 'IMEI incorrect',
+          error: 'FINGERPRINT incorrect',
         });
       }
+
+      //------------------------------------------------------------------------------------------------
 
       //Expiration verification
       const now = moment()
         .format('YYYY-MM-DD')
         .toString()
         .split('-');
-      const expiration = user.expiration.split('-');
+      const expiration = user.validade.split('-');
 
       if (now[0] === expiration[0] && now[1] === expiration[1]) {
         if (now[2] >= expiration[2]) {
@@ -84,6 +107,7 @@ module.exports = {
         }
       }
 
+      console.log('step4');
       //Key verification
       if (key !== '38d778e70ef5a85aeb526f7f19eed608') {
         return res.status(403).send({
