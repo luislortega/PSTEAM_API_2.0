@@ -5,11 +5,11 @@ module.exports = {
     try {
       const user = await usuario.update(
         {
-          expiration: req.body.new_expiration,
+          validade: req.body.new_validade,
         },
         {
           where: {
-            username: req.body.username,
+            usuario: req.body.usuarioo,
           },
         },
       );
@@ -24,7 +24,7 @@ module.exports = {
     try {
       const user = await usuario.findOne({
         where: {
-          username: req.body.username,
+          usuario: req.body.usuarioo,
         },
       });
       res.send({

@@ -22,7 +22,7 @@ module.exports = {
               },
               {
                 where: {
-                  username: element.username,
+                  usuario: element.username,
                 },
               },
             );
