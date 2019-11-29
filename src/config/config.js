@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 const op = Sequelize.Op;
 
 module.exports = {
-  port: process.env.PORT || 5432, //DELETE THIS.
+  //port: process.env.PORT || 5432, //DELETE THIS.
   db: {
     database: process.env.DB_NAME || 'd69gujn4lbr2gk',
     user: process.env.DB_USER || 'nehvbemosvjsyy',
