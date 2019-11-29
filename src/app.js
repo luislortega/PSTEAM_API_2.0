@@ -5,7 +5,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const { sequelize } = require('./models');
 //POSRT
-const port = 5432;
+const port = 8080;
 //Express
 const app = express();
 app.use(morgan('combined'));
