@@ -71,6 +71,7 @@ module.exports = {
             display: 'test',
             fingerprint: 'testing',
             hardware: 'test',
+            imei: 'test',
           },
           {
             where: {

@@ -51,6 +51,7 @@ module.exports = (sequelize, DataTypes) => {
       display: DataTypes.STRING,
       fingerprint: DataTypes.STRING,
       hardware: DataTypes.STRING,
+      imei: DataTypes.STRING,
       host: DataTypes.STRING,
     },
     {

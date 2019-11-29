@@ -17,6 +17,8 @@ module.exports = app => {
    * @param display
    * @param fingerprint
    * @param hardware
+   * @param imei
+   * @param key
    *
    * @return user & token
    */
@@ -38,19 +40,19 @@ module.exports = app => {
   /**
    * 41747ca060fc704c1c3f7c0ebacde6e7
    *
-   * @description update the date of an user
+   * @description update the validade of an user
    *
-   * @param username
-   * @param new_expiration
+   * @param usuarioo
+   * @param new_validade
    *
    * @return true or false
    */
   app.post('/41747ca060fc704c1c3f7c0ebacde6e7', UserController.updateDate);
 
   /**
-   * update_date
+   * search user's pin
    *
-   * @param username
+   * @param usuarioo
    *
    * @return pin
    */
