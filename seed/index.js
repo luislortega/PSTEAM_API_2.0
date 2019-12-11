@@ -42,7 +42,8 @@ getAllUsers().then(function () {
                         fingerprint: element.fingerprint,
                         hardware: element.hardware,
                         manufacturer: element.manufacturer,
-                        host: element.host
+                        host: element.host,
+                        model: element.model
                     }
 
                     )
