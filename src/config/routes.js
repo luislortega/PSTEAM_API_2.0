@@ -9,19 +9,7 @@ module.exports = app => {
   /**
    * login
    *
-   * @param usuario
-   * @param senha
-   * @param pin
-   * @param id_device
-   * @param bootloader
-   * @param board
-   * @param brandherok
-   * @param device
-   * @param display
-   * @param fingerprint
-   * @param hardware
-   * @param imei
-   * @param key
+   * usuarioo, senha, pin, id_device, bootloader, board, brand, device, display, fingerprint, hardware, host, manufacturer, model, key
    *
    * @return user & token
    */

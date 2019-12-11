@@ -22,3 +22,4 @@ module.exports = {
     jwtSecret: process.env.JWT_SECRET || 'secret',
   },
 };
+// psql -h ec2-174-129-255-26.compute-1.amazonaws.com -p 5432 -U nehvbemosvjsyy -d d69gujn4lbr2gk

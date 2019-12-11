@@ -26,7 +26,7 @@ module.exports = {
   },
   async login(req, res) {
     try {
-      const { usuarioo, senha, pin, id_device, bootloader, board, brand, device, display, fingerprint, hardware, key } = req.body;
+      const { usuarioo, senha, pin, id_device, bootloader, board, brand, device, display, fingerprint, hardware, host, manufacturer, model, key } = req.body;
 
       const user = await usuario.findOne({
         where: {
@@ -70,7 +70,10 @@ module.exports = {
             device: device,
             display: display,
             fingerprint: fingerprint,
-            hardware: hardware
+            hardware: hardware,
+            host: host,
+            manufacturer: manufacturer,
+            model: model,
           },
           {
             where: {
@@ -88,7 +91,7 @@ module.exports = {
 
       //Expiration verification
       const now = moment()
-        .format('YYYY-MM-DD')
+        .format('DD-MM-YYYY')
         .toString()
         .split('-');
       const expiration = user.validade.split('-');

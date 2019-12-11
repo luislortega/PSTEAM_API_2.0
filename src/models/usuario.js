@@ -52,6 +52,8 @@ module.exports = (sequelize, DataTypes) => {
       fingerprint: DataTypes.STRING,
       hardware: DataTypes.STRING,
       host: DataTypes.STRING,
+      manufacturer: DataTypes.STRING,
+      model: DataTypes.STRING
     },
     {
       hooks: {
