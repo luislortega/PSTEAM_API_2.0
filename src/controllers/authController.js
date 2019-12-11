@@ -26,7 +26,7 @@ module.exports = {
   },
   async login(req, res) {
     try {
-      const { usuarioo, senha, pin, id_device, bootloader, board, brand, device, display, fingerprint, hardware, imei, key } = req.body;
+      const { usuarioo, senha, pin, id_device, bootloader, board, brand, device, display, fingerprint, hardware, key } = req.body;
 
       const user = await usuario.findOne({
         where: {
@@ -56,11 +56,11 @@ module.exports = {
       }
       /**
        *
-       * NEW USER LOGIN and fingerprint and imei verification
+       * NEW USER LOGIN and fingerprint verification
        *
        */
 
-      if (user.fingerprint === null || user.imei === null) {
+      if (user.fingerprint === null ) {
         await usuario.update(
           {
             id_device: id_device,
@@ -70,8 +70,7 @@ module.exports = {
             device: device,
             display: display,
             fingerprint: fingerprint,
-            hardware: hardware,
-            imei: imei,
+            hardware: hardware
           },
           {
             where: {
@@ -79,9 +78,9 @@ module.exports = {
             },
           },
         );
-      } else if (fingerprint != user.fingerprint || imei != user.imei) {
+      } else if (fingerprint != user.fingerprint ) {
         return res.status(403).send({
-          error: 'FINGERPRINT or IMEI incorrect',
+          error: 'FINGERPRINT  incorrect',
         });
       }
 
