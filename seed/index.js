@@ -26,11 +26,13 @@ getAllUsers().then(function () {
         .then(async function () {
             await Promise.all(
                 array_usuarios.forEach(element => {
-                    
+                    let validad = element.validade
+                        let vector_datos = validad.split("-");
+                        let fecha = vector_datos[2]+"-"+vector_datos[1]+"-"+vector_datos[0];
                         usuario.create({
                             usuario: element.usuario,
                             senha: element.senha,
-                            validade: element.validade,
+                            validade: fecha,
                             host: element.host,
                             vendedor: element.vendedor,
                             id_device: element.id,
