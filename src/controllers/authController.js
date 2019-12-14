@@ -31,7 +31,7 @@ function decrypt(data) {
 async function testEncryption(data) {
   const encryptedData = await encrypt(data);
   console.log('Message (ENCRIPTADO):', encryptedData);
- console.log('Message (DESENCRIPTADO):', decrypt("d92140f5dddf4c0f234d432fa6cca550"));
+ console.log('Message (DESENCRIPTADO):', decrypt(encryptedData));
 }
 
 module.exports = {
