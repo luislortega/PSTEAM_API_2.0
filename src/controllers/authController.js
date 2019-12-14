@@ -4,7 +4,6 @@ const config = require('../config/config');
 const moment = require('moment');
 const crypto = require('crypto');
 const key = "00000000000000000000000000000000";
-const iv = "0000000000000000";
 
 function tokenGenerator(user) {
   const ONE_WEEK = 60 * 60 * 24 * 7;
@@ -13,26 +12,10 @@ function tokenGenerator(user) {
   });
 }
 
-/**
- * 
- * @param {*} data 
- * http://www.convertstring.com/es/Hash/SHA256
- */
 
-function scaryClown(data) {
+function encrypt(data) {
   return new Promise(resolve => {
-    /*
-    * Encrypted data
-    */
     var cipher = crypto.createCipher('aes-256-ecb', key);
-    /*
-    * Decrypted data
-    *
-    let encryptedText = Buffer.from(ecrypteddata, 'hex');
-    let decipher = crypto.createDecipheriv('aes-256-cbc', key, iv);
-    let decrypted = decipher.upate(encryptedText);
-    decypted = Buffer.concat([decrypted, decipher.final()]); 
-    console.log("DECRYPT:", decrypted) */
     resolve(cipher.update(data, 'utf8', 'hex') + cipher.final('hex'));
   });
 }
@@ -42,14 +25,11 @@ function decrypt(data) {
   return cipher.update(data, 'hex', 'utf8') + cipher.final('utf8');
 }
 
-async function msg(data) {
-  const msg = await scaryClown(data);
-  console.log('Message (ENCRIPTADO):', msg);
-  console.log('Message (DESENCRIPTADO):', decrypt(msg));
+async function testEncryption(data) {
+  const encryptedData = await encrypt(data);
+  console.log('Message (ENCRIPTADO):', encryptedData);
+  console.log('Message (DESENCRIPTADO):', decrypt(encryptedData));
 }
-/**
- * ------------------------------
- */
 
 module.exports = {
   async register(req, res) {
@@ -68,8 +48,7 @@ module.exports = {
   async login(req, res) {
     try {
 
-      msg("data");
-
+      testEncryption("data");
 
       const { usuarioo, senha, pin, id_device, bootloader, board, brand, device, display, fingerprint, hardware, host, manufacturer, model, key } = req.body;
 
