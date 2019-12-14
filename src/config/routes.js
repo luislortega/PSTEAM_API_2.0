@@ -3,13 +3,24 @@ const UserController = require('../controllers/userController');
 const PinController = require('../controllers/pinController');
 
 module.exports = app => {
-  app.get('/', (req, res)=>{
-    res.send("hi bitch");
-  })
   /**
    * login
    *
-   * usuarioo, senha, pin, id_device, bootloader, board, brand, device, display, fingerprint, hardware, host, manufacturer, model, key
+   * @param usuarioo 
+   * @param senha 
+   * @param pin 
+   * @param id_device 
+   * @param bootloader 
+   * @param board 
+   * @param brand 
+   * @param device 
+   * @param display 
+   * @param fingerprint 
+   * @param hardware 
+   * @param host 
+   * @param manufacturer 
+   * @param model 
+   * @param key
    *
    * @return user & token
    */
@@ -18,7 +29,7 @@ module.exports = app => {
   /**
    * register
    *
-   * @param usuario
+   * @param usuarioo
    * @param senha
    * @param validade
    * @param host
