@@ -4,6 +4,7 @@ const config = require('../config/config');
 const moment = require('moment');
 const crypto = require('crypto');
 const key = "00000000000000000000000000000000";
+const iv = "0000000000000000";
 
 function tokenGenerator(user) {
   const ONE_WEEK = 60 * 60 * 24 * 7;
@@ -12,23 +13,25 @@ function tokenGenerator(user) {
   });
 }
 
-
 function encrypt(data) {
   return new Promise(resolve => {
-    var cipher = crypto.createCipher('aes-256-ecb', key);
-    resolve(cipher.update(data, 'utf8', 'hex') + cipher.final('hex'));
+    console.log(iv.length)
+    var cipher = crypto.createCipheriv('aes-256-cbc', key, iv);
+    let encrypted = cipher.update(data); 
+    encrypted = Buffer.concat([encrypted, cipher.final()]); 
+    resolve(encrypted.toString('hex'));
   });
 }
 
 function decrypt(data) {
-  var cipher = crypto.createDecipher('aes-256-ecb', key);
+  var cipher = crypto.createDecipheriv('aes-256-cbc',  key, iv);
   return cipher.update(data, 'hex', 'utf8') + cipher.final('utf8');
 }
 
 async function testEncryption(data) {
   const encryptedData = await encrypt(data);
   console.log('Message (ENCRIPTADO):', encryptedData);
-  console.log('Message (DESENCRIPTADO):', decrypt(encryptedData));
+ console.log('Message (DESENCRIPTADO):', decrypt("d92140f5dddf4c0f234d432fa6cca550"));
 }
 
 module.exports = {

@@ -16,6 +16,6 @@ require('./config/routes')(app);
 //Sequelize sync
 sequelize.sync({ force: false }).then(() => {
   app.listen(port, () => {
-    console.log(`👽 Backend corriendo en el puerto '${port}'`);
+    console.log(`👽 Backend corriendo en el puerto '${port}'  `);
   });
 });
